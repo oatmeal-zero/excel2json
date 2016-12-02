@@ -3,6 +3,7 @@ using System.IO;
 using System.Data;
 using System.Text;
 using Excel;
+using System.Windows.Forms;
 
 namespace excel2json
 {
@@ -12,9 +13,20 @@ namespace excel2json
     sealed partial class Program
     {
         /// <summary>
+        /// 应用程序的主入口点。
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new fmMain());
+        }
+        /// <summary>
         /// 应用程序入口
         /// </summary>
         /// <param name="args">命令行参数</param>
+        /*
         static void Main(string[] args)
         {
             System.DateTime startTime = System.DateTime.Now;
@@ -44,7 +56,7 @@ namespace excel2json
                 Path.GetFileName(options.ExcelPath),
                 dur.Milliseconds)
                 );
-        }
+        }*/
 
         /// <summary>
         /// 根据命令行参数，执行Excel数据导出工作
